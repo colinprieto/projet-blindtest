@@ -1,6 +1,17 @@
 #ifndef __SERVEUR_H__
 #define __SERVEUR_H__
 
+#define LONGUEUR_TAMPON 4096
+
+typedef struct {
+	/* le socket de service */
+	int socketService;
+	/* le tampon de reception */
+	char tamponClient[LONGUEUR_TAMPON];
+	int debutTampon;
+	int finTampon;
+} Client;
+
 /* Initialisation.
  * Creation du serveur.
  * renvoie 1 si a c'est bien passŽ 0 sinon
@@ -17,7 +28,7 @@ int InitialisationAvecService(char *service);
 /* Attends qu'un client se connecte.
  * renvoie 1 si a c'est bien passŽ 0 sinon
  */
-int AttenteClient();
+Client * AttenteClient();
 
 /* Recoit un message envoye par le client.
  * retourne le message ou NULL en cas d'erreur.

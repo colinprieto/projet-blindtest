@@ -20,6 +20,18 @@
 #define FALSE 0
 #define LONGUEUR_TAMPON 4096
 
+/* le socket d'ecoute */
+int socketEcoute;
+/* longueur de l'adresse */
+socklen_t longeurAdr;
+/* le socket de service */
+int socketService;
+/* le tampon de reception */
+char tamponClient[LONGUEUR_TAMPON];
+int debutTampon;
+int finTampon;
+int finConnexion = 0;
+
 int Initialisation() {
 	return InitialisationAvecService("13214");
 }
@@ -34,7 +46,6 @@ int InitialisationAvecService(char *service) {
 	hints.ai_flags = AI_PASSIVE;
 	hints.ai_family = AF_UNSPEC;
 	hints.ai_socktype = SOCK_STREAM;
-
 	if ( (n = getaddrinfo(NULL, service, &hints, &res)) != 0)  {
      		printf("Initialisation, erreur de getaddrinfo : %s", gai_strerror(n));
      		return 0;
