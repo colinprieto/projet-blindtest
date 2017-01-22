@@ -37,7 +37,7 @@ int insertion(Debut *debut, const char adresse[20], const char pseudo[20])
 	return 1;
 }
 
-int parcours(Debut *debut, const char adresse)
+int parcours(Debut *debut, const char adresse[20])
 {
 	int i = 0;
 	int comparaison = 1;
@@ -46,13 +46,21 @@ int parcours(Debut *debut, const char adresse)
 	if(recherche == NULL || debut == NULL)
 	{
 		exit(EXIT_FAILURE);
+
 	}
 	recherche = debut->premier;
-	while (recherche != NULL||terminer != 1)
+	while (terminer != 1)
 	{	
 		comparaison = strcmp(recherche->adresse_mac, adresse);
-		if (comparaison = 0)
+
+		if (comparaison == 0)
 		{
+			terminer = 1;
+	
+		}
+		else if(recherche->suivant == NULL)
+		{
+			i=-1;
 			terminer = 1;
 		}
 		else
@@ -71,63 +79,53 @@ int parcours(Debut *debut, const char adresse)
 	return i;
 } 
 
-int modification(Debut *debut, const char adresse, const int score, const int booleen)
+int modification(Debut *debut, const int score, const int booleen, const int position)
 {
 	int i = 0;
-	int comparaison = 1;
-	int terminer = 0;
-	Profil *recherche = malloc(sizeof(*recherche));
-	if(recherche == NULL || debut == NULL)
-	{
-		exit(EXIT_FAILURE);
-	}
-	while (recherche != NULL || terminer != 1)
-	{
-		comparaison = strcmp(*recherche->adresse_mac, adresse);
-		if(comparaison =0)
-		{
-			terminer = 1;
-			recherche->score = score;
-			recherche->booleen = booleen;
-			i = 1;
-
-		}
-		else
-		{
-			recherche = recherche->suivant;
-		}
-	}
-	recherche = NULL;
-	free(recherche);
-	return i;
-}
-
-int suppression(Debut *debut, const char adresse)
-{	
-	int i = 0;
-	int comparaison = 1;
-	int terminer = 0;
 	Profil *recherche = malloc(sizeof(*recherche));
 	if(recherche == NULL || debut == NULL)
 	{
 		exit(EXIT_FAILURE);
 	}
 	recherche = debut->premier;
-	while (recherche != NULL||terminer != 1)
-	{	
-		comparaison = strcmp(*recherche->adresse_mac, adresse);
-		if (comparaison = 0)
-		{
-			terminer = 1;
-		}
-		else
-		{
-			i ++;
-			recherche = recherche->suivant;
-		}
-
+	for (i=0; i< position; i++)
+	{
+		recherche = recherche->suivant;
+	
 	}
-
+	recherche->score = score;
+	recherche->booleen = booleen;
+	i = 1;
+	recherche = NULL;
 	free(recherche);
+	return i;
+}
+
+int suppression(Debut *debut, const int position)
+{	
+	int i = 0;
+	Profil *recherche = malloc(sizeof(*recherche));
+	Profil *avant = malloc(sizeof(*avant));
+	if(recherche == NULL || debut == NULL)
+	{
+		exit(EXIT_FAILURE);
+	}
+	recherche = debut->premier;
+	avant = debut->premier;
+	for (i=0; i< position; i++)
+	{
+		recherche = recherche->suivant;
+	
+	}
+	for (i=1; i<position; i++)
+	{
+		avant = avant->suivant;
+	}
+	avant->suivant = recherche->suivant;
+	
+	i = 1;
+	avant = NULL;
+	free(recherche);
+	free(avant);
 	return i;
 }
