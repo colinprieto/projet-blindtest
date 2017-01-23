@@ -11,7 +11,7 @@
     tools:context="btb.blindtest.MainActivity">
 
     <TextView
-        android:text="TextView"
+        android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textViewArtist"
@@ -22,7 +22,7 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="TextView"
+        android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewArtist"
@@ -34,7 +34,7 @@
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:text="Button"
+        android:text="Generate random song"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button"
@@ -47,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="Enter the text below"
+        android:hint="Enter title"
         android:ems="10"
         android:id="@+id/editText"
         android:layout_below="@+id/button"
@@ -56,12 +56,12 @@
         android:layout_marginTop="20dp" />
 
     <TextView
-        android:text="toto"
+        android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editText"
         android:layout_marginTop="11dp"
-        android:id="@+id/tvRef"
+        android:id="@+id/score"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

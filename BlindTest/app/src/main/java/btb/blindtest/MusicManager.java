@@ -74,9 +74,13 @@ public class MusicManager {
     }
 
     public void generateRandomSong(){
-        Random r = new Random();
-        int randomMusicIndex = r.nextInt(musicCount);
-        currentMusic = listMusic.get(randomMusicIndex);
+        if(musicCount > 0) {
+            Random r = new Random();
+            int randomMusicIndex = r.nextInt(musicCount);
+            currentMusic = listMusic.get(randomMusicIndex);
+        }else{
+            currentMusic = null;
+        }
     }
 
     public void playMusicAtRandomStart(Music m){

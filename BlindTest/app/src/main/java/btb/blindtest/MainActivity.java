@@ -1,5 +1,6 @@
 package btb.blindtest;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -9,10 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     MusicManager musicManager;
-    TextView tvArtist, tvTitle, tvRef;
+    TextView tvArtist, tvTitle, tvScore;
     EditText field;
     Button start;
     int distLev = 0;
@@ -26,14 +28,14 @@ public class MainActivity extends AppCompatActivity {
         tvTitle = (TextView) findViewById(R.id.textViewTitle);
         start = (Button) findViewById(R.id.button);
         field = (EditText) findViewById(R.id.editText);
-        tvRef = (TextView) findViewById(R.id.tvRef);
+        tvScore = (TextView) findViewById(R.id.score);
         field.addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable s) {
 
                 // you can call or do what you want with your EditText here
-                distLev = getLevenshteinDistance((field.getText()).toString(),(tvRef.getText()).toString());
-                tvArtist.setText(""+distLev);
+                distLev = getLevenshteinDistance((field.getText()).toString(),(tvTitle.getText()).toString());
+                tvScore.setText("distance : "+distLev);
 
             }
 
@@ -48,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    if(musicManager.currentMusic == null){
+                        new Toast(getApplicationContext()).makeText(getApplicationContext(),
+                                "No song in sdcard", Toast.LENGTH_LONG).show();
+                        return true;
+                    }
                     musicManager.generateRandomSong();
                     Music m = musicManager.getCurrentMusic();
                     tvArtist.setText(m.getArtist());
