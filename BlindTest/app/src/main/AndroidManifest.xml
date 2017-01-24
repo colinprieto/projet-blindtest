@@ -12,7 +12,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">></activity>
+        <activity
+            android:name=".TestActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            >
+        </activity>
         <activity
             android:name=".PseudoActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
@@ -22,7 +26,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChooserActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">></activity >
+        <activity
+            android:name=".ChooserActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            >
+        </activity>
+        <activity android:name=".GameActivity" />
+        <activity android:name=".CreateActivity"></activity>
     </application>
 
 </manifest>

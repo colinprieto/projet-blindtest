@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="btb.blindtest.MainActivity">
+    tools:context="btb.blindtest.TestActivity">
 
     <TextView
         android:text=""

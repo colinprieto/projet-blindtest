@@ -1,8 +1,8 @@
 package btb.blindtest;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MotionEvent;
@@ -12,7 +12,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
+public class TestActivity extends Activity {
     MusicManager musicManager;
     TextView tvArtist, tvTitle, tvScore;
     EditText field;
@@ -23,7 +27,7 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_test);
         tvArtist = (TextView) findViewById(R.id.textViewArtist);
         tvTitle = (TextView) findViewById(R.id.textViewTitle);
         start = (Button) findViewById(R.id.button);
@@ -65,6 +69,37 @@ public class MainActivity extends Activity {
                 return false;
             }
         });
+        MainTask mt = new MainTask();
+        mt.execute();
+        try {
+            //attendre la fin de l'asynctask
+            mt.get(30, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private class MainTask extends AsyncTask<Void, Void, Void>{
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            //Communication c = new Communication("boolshit", 1234, getApplicationContext());
+            //c.read();
+            //c.write("caca");
+            runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    tvScore.setText("boolshit");
+                }
+            });
+
+            return null;
+        }
     }
 
     //Fonction calcul de distance prise sur internet
