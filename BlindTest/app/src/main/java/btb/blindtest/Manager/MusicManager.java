@@ -1,16 +1,15 @@
-package btb.blindtest;
+package btb.blindtest.Manager;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.provider.MediaStore;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
+
+import btb.blindtest.Data.Music;
 
 /**
  * Created by Tlucien on 25/12/2016.
@@ -18,7 +17,7 @@ import java.util.TimerTask;
 
 public class MusicManager {
     ArrayList<Music> listMusic;
-    Music currentMusic;
+    public Music currentMusic;
     MediaPlayer mMediaPlayer;
     Context context;
     int musicCount;
@@ -45,6 +44,7 @@ public class MusicManager {
     public Music getCurrentMusic() {
         return currentMusic;
     }
+    public int getMusicCount(){ return musicCount; }
 
     private void initPhoneMusicList() {
         listMusic = new ArrayList<>();

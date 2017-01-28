@@ -8,31 +8,29 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="btb.blindtest.ChooserActivity">
+    tools:context="btb.blindtest.Activities.ChooserActivity">
 
-    <Button
-        android:text="Creer une partie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonCreate"
-        android:layout_above="@+id/buttonJoin"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="55dp" />
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-    <Button
-        android:text="Rejoindre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonJoin"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-    <Button
-        android:text="Tester"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="67dp"
-        android:id="@+id/buttonTest"
-        android:layout_below="@+id/buttonJoin"
-        android:layout_centerHorizontal="true" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
 </RelativeLayout>

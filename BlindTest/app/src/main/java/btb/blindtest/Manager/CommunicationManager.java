@@ -1,4 +1,4 @@
-package btb.blindtest;
+package btb.blindtest.Manager;
 
 import android.content.Context;
 import android.widget.Toast;
@@ -14,13 +14,23 @@ import java.net.Socket;
  * NE PAS OUBLIER DE CLOSE LA COMMUNICATION APRES UTILISATION
  */
 
-public class Communication {
+public class CommunicationManager {
     Socket sock = null;
     BufferedReader in = null;
     PrintWriter out = null;
     Context c = null;
+    private static CommunicationManager communicationManagerSingleton;
+    public static CommunicationManager getInstance(Context c)
+    {
+        if (communicationManagerSingleton == null)
+        {
+            communicationManagerSingleton = new CommunicationManager("pi", 12345, c);
+        }
+        return communicationManagerSingleton;
+    }
 
-    public Communication(String host,int port, Context c) {
+
+    private CommunicationManager(String host, int port, Context c) {
         super();
         this.c = c;
         try {

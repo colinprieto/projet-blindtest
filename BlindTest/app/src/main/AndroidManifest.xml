@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="btb.blindtest">
 
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -13,12 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".TestActivity"
+            android:name=".Activities.TestActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             >
         </activity>
         <activity
-            android:name=".PseudoActivity"
+            android:name=".Activities.PseudoActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,12 +28,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ChooserActivity"
+            android:name=".Activities.MenuActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             >
         </activity>
-        <activity android:name=".GameActivity" />
-        <activity android:name=".CreateActivity"></activity>
+        <activity android:name=".Activities.GameActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name=".Activities.CreateActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name=".Activities.ChooserActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
     </application>
 
 </manifest>

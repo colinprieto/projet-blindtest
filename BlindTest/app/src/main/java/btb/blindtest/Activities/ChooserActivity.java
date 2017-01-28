@@ -1,13 +1,15 @@
-package btb.blindtest;
+package btb.blindtest.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class CreateActivity extends AppCompatActivity {
+import btb.blindtest.R;
+
+public class ChooserActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create);
+        setContentView(R.layout.activity_chooser);
     }
 }
