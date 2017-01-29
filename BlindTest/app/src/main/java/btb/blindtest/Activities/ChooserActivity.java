@@ -1,11 +1,12 @@
 package btb.blindtest.Activities;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import btb.blindtest.R;
 
-public class ChooserActivity extends AppCompatActivity {
+public class ChooserActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

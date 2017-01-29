@@ -1,5 +1,6 @@
 package btb.blindtest.Activities;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -21,7 +22,7 @@ import btb.blindtest.Manager.MusicManager;
 import btb.blindtest.R;
 import btb.blindtest.Utils.ScoreUtils;
 
-public class GameActivity extends AppCompatActivity {
+public class GameActivity extends Activity {
     MusicManager musicManager;
     String artist;
     String title;

@@ -1,5 +1,6 @@
 package btb.blindtest.Activities;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,7 +12,7 @@ import android.widget.Toast;
 import btb.blindtest.Manager.CommunicationManager;
 import btb.blindtest.R;
 
-public class CreateActivity extends AppCompatActivity {
+public class CreateActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class CreateActivity extends AppCompatActivity {
             }else {
                 new Toast(getApplicationContext()).makeText(getApplicationContext(),
                         "Error while creating game", Toast.LENGTH_LONG).show();
+                finish();
             }
             return null;
         }
