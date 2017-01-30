@@ -40,7 +40,7 @@ char *Reception();
  * Attention, le message doit etre termine par \n
  * renvoie 1 si a c'est bien passŽ 0 sinon
  */
-int Emission(char *message);
+int Emission(char *message, Client *cl);
 
 
 /* Ferme la connexion avec le client.

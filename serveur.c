@@ -169,13 +169,15 @@ Client * AttenteClient() {
 	return client;
 }
 
-int Emission(char *message) {
+int Emission(char *message, Client *client) {
 	int taille;
+
 	if(strstr(message, "\n") == NULL) {
 		fprintf(stderr, "Emission, Le message n'est pas termine par \\n.\n");
+		return 0;
 	}
 	taille = strlen(message);
-	if (send(socketService, message, taille,0) == -1) {
+	if (send(client->socketService, message, taille,0) == -1) {
         perror("Emission, probleme lors du send.");
         return 0;
 	}
