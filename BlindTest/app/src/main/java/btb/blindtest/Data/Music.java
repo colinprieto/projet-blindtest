@@ -1,4 +1,4 @@
-package btb.blindtest;
+package btb.blindtest.Data;
 
 import java.util.ArrayList;
 
